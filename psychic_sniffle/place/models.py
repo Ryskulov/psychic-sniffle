@@ -2,14 +2,17 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class PlaceTag(models.Model):
     name = models.CharField(u'Название', max_length=255)
+    def __unicode__(self):
+        return self.name
+
 
 class Place(models.Model):
     name = models.CharField(u'Название ', max_length=30)
-    slug = models.SlugField(u'ССЫЛКА???')
+    slug = models.SlugField(u'Slug')
     created = models.DateTimeField(u'Дата регистрации: ', auto_now_add=True)
     modified = models.DateTimeField(u'Дата изменения: ', auto_now=True)
     main_foto = models.ImageField(u'Фотография заведения', upload_to='media/')
@@ -19,8 +22,19 @@ class Place(models.Model):
     short_description = models.TextField(u'Краткое описание')
     description = models.TextField(u'Полное описание')
     
+    def __unicode__(self):
+        return self.name
 
 
+class Feedback(models.Model):
+    comment = models.TextField(u'Коментарий')
+    author = models.ForeignKey(User)
+    created = models.DateTimeField(u'Дата публикации', auto_now_add=True)
+    published = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return self.author.get_full_name()
+        
 # Название
 # Slug
 # created
