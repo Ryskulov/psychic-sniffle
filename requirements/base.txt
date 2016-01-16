@@ -1,6 +1,6 @@
 
 # Database Adapter
-MySQL-python
+# MySQL-python
 
 
 # Django stuff
