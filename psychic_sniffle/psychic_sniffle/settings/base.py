@@ -302,3 +302,4 @@ COMPRESS_PRECOMPILERS = (
 COMPRESS_ROOT = os.path.normpath(os.path.join(SITE_ROOT, 'static'))
 COMPRESS_OUTPUT_DIR = 'compiled'
 ########## END SOUTH CONFIGURATION
+SITE_ID = 1
