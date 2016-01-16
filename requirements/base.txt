@@ -1,0 +1,29 @@
+
+# Database Adapter
+MySQL-python
+
+
+# Django stuff
+Django
+
+# for bcrypt passwords
+bcrypt
+
+# Templates
+django_compressor
+
+# L10n/i18n
+#Babel
+#-e git://github.com/clouserw/tower.git#egg=tower
+
+# Logging
+logutils
+
+# Mixins
+django-braces
+django-model-utils
+bpython
+
+# Admin
+django-debug-toolbar
+
