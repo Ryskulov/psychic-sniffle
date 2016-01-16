@@ -196,6 +196,7 @@ DJANGO_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     # Useful template tags:
     # 'django.contrib.humanize',
 
@@ -208,6 +209,7 @@ DJANGO_APPS = (
 LOCAL_APPS = (
     # Application base, containing global templates.
     'base',
+    'place',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -300,3 +302,4 @@ COMPRESS_PRECOMPILERS = (
 COMPRESS_ROOT = os.path.normpath(os.path.join(SITE_ROOT, 'static'))
 COMPRESS_OUTPUT_DIR = 'compiled'
 ########## END SOUTH CONFIGURATION
+SITE_ID = 1
