@@ -11,6 +11,10 @@ class PlaceTag(models.Model):
         return self.name
 
 
+class Category(models.Model):
+    name = models.Model()
+    slug = models.Model()
+
 class Place(models.Model):
     name = models.CharField(u'Название ', max_length=30)
     slug = models.SlugField(u'Slug')
@@ -27,7 +31,7 @@ class Place(models.Model):
     class Meta:
         verbose_name = u'заведение'
         verbose_name_plural = u'заведения'
-    
+
     def __unicode__(self):
         return self.name
 
