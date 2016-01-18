@@ -1,6 +1,9 @@
 
+<<<<<<< Updated upstream
 # Database Adapter
 # MySQL-python
+=======
+>>>>>>> Stashed changes
 
 
 # Django stuff
