@@ -22,6 +22,7 @@ class Place(models.Model):
     adress = models.CharField(u'Адрес', max_length=100)
     short_description = models.TextField(u'Краткое описание')
     description = models.TextField(u'Полное описание')
+    is_published = models.BooleanField(u'Опубликовано', default=False)
 
     class Meta:
         verbose_name = u'заведение'
@@ -29,6 +30,11 @@ class Place(models.Model):
     
     def __unicode__(self):
         return self.name
+
+    def place_picture(self):
+        return u'<img src="%s"  width="100"/>' % (self.main_foto.url)
+    place_picture.short_description = u'Картинка'
+    place_picture.allow_tags = True
 
 
 class Feedback(models.Model):
@@ -39,15 +45,3 @@ class Feedback(models.Model):
 
     def __unicode__(self):
         return self.author.get_full_name()
-        
-# Название
-# Slug
-# created
-# modified
-# главная фотка
-# Теги
-# График работы
-# Адрес
-# краткое описание
-# полное описание
-# комменты

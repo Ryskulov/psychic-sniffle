@@ -5,7 +5,8 @@ from .models import Place
 
 
 def show_list(request):
-    return render(request, 'places/list.html', {})
+    places = Place.objects.all().order_by('-created')
+    return render(request, 'places/list.html', {'places': places})
 
 
 def search(request):
