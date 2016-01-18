@@ -28,8 +28,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'psychic_sniffle.db',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'local_way',
+        'USER': 'root',
+        'PASSWORD': 'root'
     }
 }
 

@@ -11,9 +11,22 @@ class PlaceTag(models.Model):
         return self.name
 
 
+class Category(models.Model):
+    name = models.CharField(u'Название', max_length=255)
+    slug = models.SlugField(u'Slug', max_length=70)
+
+    class Meta:
+        verbose_name = u'категорию'
+        verbose_name_plural = u'Категории'
+
+    def __unicode__(self):
+        return self.name
+
+
 class Place(models.Model):
     name = models.CharField(u'Название ', max_length=30)
     slug = models.SlugField(u'Slug')
+    category = models.ForeignKey(Category, verbose_name=u'Категория', blank=True, null=True)
     created = models.DateTimeField(u'Дата регистрации: ', auto_now_add=True)
     modified = models.DateTimeField(u'Дата изменения: ', auto_now=True)
     main_foto = models.ImageField(u'Фотография заведения', upload_to='media/')
