@@ -12,42 +12,28 @@
 {% block content %} 
 
 {{ block.super }}
+{% if query %}{{ query }}
+
+{% endif %}
 <div class="wrapp">
 <div class="container">
   <ul class="list_holder">
   <div class="row">
-    <div class="col-sm-4 col-md-4 place">
-      <div class="thumbnail">
-        <div class="caption">
-          <img src="{% static 'img/n.jpg'%}" alt="">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-        </div>
-      </div>
-    </div>
-
-      <div class="col-sm-4 col-md-4 place">
-      <div class="thumbnail">
-        <div class="caption">
-          <img src="{% static 'img/n.jpg'%}" alt="">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-        </div>
-      </div>
-    </div>
 
 
+    {% for place in places %}
       <div class="col-sm-6 col-md-4 place">
       <div class="thumbnail">
         <div class="caption">
           <img src="{% static 'img/n.jpg'%}" alt="">
-          <h3>Thumbnail label</h3>
+          <h3>{{ place.name }}</h3>
           <p>...</p>
         </div>
       </div>
     </div>
- 
+ {% endfor %}
     </div>
+ 
   </ul>
 </div>
 </div>
