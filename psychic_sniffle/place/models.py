@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 class PlaceTag(models.Model):
     name = models.CharField(u'Название', max_length=255)
+
     def __unicode__(self):
         return self.name
 
@@ -21,6 +22,10 @@ class Place(models.Model):
     adress = models.CharField(u'Адрес', max_length=100)
     short_description = models.TextField(u'Краткое описание')
     description = models.TextField(u'Полное описание')
+
+    class Meta:
+        verbose_name = u'заведение'
+        verbose_name_plural = u'заведения'
     
     def __unicode__(self):
         return self.name
