@@ -1,0 +1,55 @@
+{% extends "base/home.html" %}
+{% load static %}
+
+{% block right_menu %}
+<div class="wrapp">
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation" class="active"><a href="#">Home</a></li>
+    <li role="presentation"><a href="#">Profile</a></li>
+    <li role="presentation"><a href="#">Messages</a></li>
+  </ul></div>
+{% endblock %}
+{% block content %} 
+
+{{ block.super }}
+<div class="wrapp">
+<div class="container">
+  <ul class="list_holder">
+  <div class="row">
+    <div class="col-sm-4 col-md-4 place">
+      <div class="thumbnail">
+        <div class="caption">
+          <img src="{% static 'img/n.jpg'%}" alt="">
+          <h3>Thumbnail label</h3>
+          <p>...</p>
+        </div>
+      </div>
+    </div>
+
+      <div class="col-sm-4 col-md-4 place">
+      <div class="thumbnail">
+        <div class="caption">
+          <img src="{% static 'img/n.jpg'%}" alt="">
+          <h3>Thumbnail label</h3>
+          <p>...</p>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="col-sm-6 col-md-4 place">
+      <div class="thumbnail">
+        <div class="caption">
+          <img src="{% static 'img/n.jpg'%}" alt="">
+          <h3>Thumbnail label</h3>
+          <p>...</p>
+        </div>
+      </div>
+    </div>
+ 
+    </div>
+  </ul>
+</div>
+</div>
+{% endblock %}
+{% block left_menu %}{% endblock %}
