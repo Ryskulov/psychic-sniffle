@@ -15,6 +15,7 @@ def bad(request):
 
 urlpatterns = [
     url(r'', include('base.urls')),
+    url(r'^place/', include('place.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bad/$', bad),
 ]

@@ -25,11 +25,12 @@
 
   {# use the CDN to get bootstrap css. can not be inside compress css block #}
   {% block cdn_css %}
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
   {% endblock cdn_css %}
 
   {% compress css %}
   <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cool.css' %}">
   {% block css %}{% endblock %}
   {% endcompress %}
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
@@ -53,7 +54,17 @@
   </header>
 
   <div role="main">
-    {% block content %}{% endblock %}
+    <div class="row">
+      <div class="col-md-2">
+        {% block right_menu %}{% endblock %}
+      </div>
+      <div class="col-md-8">
+        {% block content %}{% endblock %}
+      </div>
+      <div class="col-md-2">
+        {% block left_menu %}{% endblock %}
+      </div>
+    </div>
   </div>
 
   <footer>
