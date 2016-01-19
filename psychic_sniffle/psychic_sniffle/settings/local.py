@@ -31,7 +31,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'local_way',
         'USER': 'root',
-        'PASSWORD': 'root'
+        'PASSWORD': '123'
     }
 }
 
