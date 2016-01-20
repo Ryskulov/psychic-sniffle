@@ -4,6 +4,10 @@ from .models import Place
 # Create your views here.
 
 
+def home(request):
+    return render(request, 'base/home.html')
+
+
 def show_list(request):
     places = Place.objects.all().order_by('-created')
     return render(request, 'places/list.html', {'places': places})

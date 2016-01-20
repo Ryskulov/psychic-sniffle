@@ -49,6 +49,11 @@ class Place(models.Model):
     place_picture.short_description = u'Картинка'
     place_picture.allow_tags = True
 
+class PlacePicture(models.Model):
+    place = models.ForeignKey(Place)
+    picture = models.ImageField(u'Изображение', upload_to='uploads/places/')
+    def __unicode__(self):
+        return self.place.name
 
 class Feedback(models.Model):
     comment = models.TextField(u'Коментарий')
