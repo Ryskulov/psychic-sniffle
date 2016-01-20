@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Place
+from .models import Place, Category
 # Create your views here.
 
 
@@ -10,7 +10,19 @@ def home(request):
 
 def show_list(request):
     places = Place.objects.all().order_by('-created')
-    return render(request, 'places/list.html', {'places': places})
+    categories = Category.objects.all()
+    return render(request, 'places/list.html', {'places': places, 'categories': categories})
+
+def category_list(request, category_slug):
+    categories = Category.objects.all()
+    category = Category.objects.get(slug=category_slug)
+    places = Place.objects.filter(category=category)
+
+    return render(request, 'places/list.html', {
+    	'places': places, 'category': category,
+    	'categories': categories,
+
+    })
 
 
 def search(request):
