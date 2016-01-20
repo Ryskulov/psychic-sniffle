@@ -210,6 +210,8 @@ LOCAL_APPS = (
     # Application base, containing global templates.
     'base',
     'place',
+    'accounts',
+    'profiles',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
