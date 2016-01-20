@@ -1,10 +1,15 @@
 from django.contrib import admin
+
 from place.models import Place, PlaceTag, Feedback, Category, PlacePicture
+from place.widgets import AdvancedFileInput
+from django.db import models
 
 
 class PlacePictureStackable(admin.StackedInline):
     model = PlacePicture
-    extra = 2
+    extra = 0
+    formfield_overrides = {models.ImageField: {'widget': AdvancedFileInput}}
+
 
 class PlaceAdmin(admin.ModelAdmin):
     inlines = [PlacePictureStackable, ]
@@ -14,6 +19,8 @@ class PlaceAdmin(admin.ModelAdmin):
     readonly_fields = ('created', )
     prepopulated_fields = {"slug": ("name",)}
     model = Place
+    formfield_overrides = {models.ImageField: {'widget': AdvancedFileInput}}
+
 
 admin.site.register(Place, PlaceAdmin)
 admin.site.register(PlaceTag)

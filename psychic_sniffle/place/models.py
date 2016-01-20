@@ -55,6 +55,18 @@ class PlacePicture(models.Model):
     def __unicode__(self):
         return self.place.name
 
+class PlacePicture(models.Model):
+    place = models.ForeignKey(Place)
+    picture = models.ImageField(u'Изображение', upload_to='uploads/places/')
+
+    class Meta:
+        verbose_name = u'изображение'
+        verbose_name_plural = u'Галерея'
+
+    def __unicode__(self):
+        return self.place.name
+
+
 class Feedback(models.Model):
     comment = models.TextField(u'Коментарий')
     author = models.ForeignKey(User)
