@@ -7,4 +7,6 @@ from place import views
 urlpatterns = [
     url(r'^$', views.show_list, name='show_list'),
     url(r'^s/$', views.search, name='search'),
+    url(r'^category_slug/(?P<category_slug>\S+)/$', views.category_list, name='category'),
+
 ]
