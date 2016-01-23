@@ -27,10 +27,11 @@
           {% if place.is_published %}
             <div class="col-sm-4 col-md-4 place">
               <div class="thumbnail">
-                <div class="caption">
-                  <img src="{% static 'img/n.jpg'%}" alt="">
-                  <p class="h4 text-muted text-center"><a  href="{% url 'detail' place.slug %}">{{ place.name }}</a></p>
-                </div>
+                <img class="img__class"src="{% static 'img/n.jpg'%}" alt="">
+                <i class="glyphicon glyphicon-bookmark create-bookmark"></i>
+              </div>
+              <div class="caption">
+                <p class="h4 text-muted text-center"><a  href="{% url 'detail' place.slug %}">{{ place.name }}</a></p>
               </div>
             </div>
           {% endif %}
