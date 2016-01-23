@@ -195,6 +195,7 @@ DJANGO_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'redactor',
 
 
     # Useful template tags:
@@ -305,3 +306,7 @@ COMPRESS_ROOT = os.path.normpath(os.path.join(SITE_ROOT, 'static'))
 COMPRESS_OUTPUT_DIR = 'compiled'
 ########## END SOUTH CONFIGURATION
 SITE_ID = 1
+
+
+REDACTOR_OPTIONS = {'lang': 'ru'}
+REDACTOR_UPLOAD = 'media/'
