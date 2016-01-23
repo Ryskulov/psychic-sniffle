@@ -17,6 +17,8 @@ def bad(request):
 urlpatterns = [
     url(r'', include('base.urls')),
     url(r'^place/', include('place.urls')),
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^profiles/', include('profiles.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bad/$', bad),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +\

@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login as django_login
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
+from django import forms
 # Create your views here.
-
 
 
 class SignupForm(forms.ModelForm):
@@ -21,7 +21,11 @@ class SignupForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = self.fields[field].label
 
 
-def singin(request):
+def home(request):
+    return render(request, 'base/home.html')
+
+
+def signin(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
 
@@ -38,7 +42,7 @@ def singin(request):
     return render(request, 'accounts/signin.html', {'error_message': message})
 
 
-def singup(request):
+def signup(request):
     form = SignupForm(request.POST or None)
     if form.is_valid():
         user = form.save(commit=False)
@@ -46,9 +50,9 @@ def singup(request):
         user.set_password(form.cleaned_data['password'])
         user.save()
         return redirect('/signin/')
-    return render(request, "accounts/singup.html", {'form': form})
+    return render(request, "accounts/signup.html", {'form': form})
 
 
-def singout(request):
+def signout(request):
     logout(request)
     return redirect('/')
