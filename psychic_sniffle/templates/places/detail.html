@@ -23,18 +23,7 @@
       {% endif %}
       <hr>
       <div class="row">
-        {% for place in places %}
-          {% if place.is_published %}
-            <div class="col-sm-4 col-md-4 place">
-              <div class="thumbnail">
-                <div class="caption">
-                  <img src="{% static 'img/n.jpg'%}" alt="">
-                  <p class="h4 text-muted text-center"><a  href="{% url 'detail' place.slug %}">{{ place.name }}</a></p>
-                </div>
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+        {{ place.name }}
       </div>
     </div>
   </div>
