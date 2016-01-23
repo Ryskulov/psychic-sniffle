@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^search/$', place_views.search, name='search'),
     url(r'^category/(?P<category_slug>\S+)/$', place_views.category_list, name='category'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^redactor/', include('redactor.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +\
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
