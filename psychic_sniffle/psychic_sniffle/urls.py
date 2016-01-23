@@ -11,6 +11,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^$', place_views.show_list, name='home'),
     url(r'^search/$', place_views.search, name='search'),
+    url(r'^detail/(?P<place_slug>\S+)/$', place_views.place_detail, name='detail'),
     url(r'^category/(?P<category_slug>\S+)/$', place_views.category_list, name='category'),
     url(r'^admin/', include(admin.site.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +\
