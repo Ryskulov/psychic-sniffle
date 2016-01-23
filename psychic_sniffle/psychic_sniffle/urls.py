@@ -1,24 +1,18 @@
-""" Default urlconf for psychicSniffle """
-
-from django.conf.urls import include, url
+# coding: utf-8
 from django.conf import settings
-from django.views.generic import TemplateView
-from django.contrib import admin
+from django.conf.urls import include, url
 from django.conf.urls.static import static
+from django.contrib import admin
+from place import views as place_views
 
 admin.autodiscover()
 
 
-def bad(request):
-    """ Simulates a server error """
-    1 / 0
-
-
 urlpatterns = [
-    url(r'', include('base.urls')),
-    url(r'^place/', include('place.urls')),
+    url(r'^$', place_views.show_list, name='home'),
+    url(r'^search/$', place_views.search, name='search'),
+    url(r'^category/(?P<category_slug>\S+)/$', place_views.category_list, name='category'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^bad/$', bad),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +\
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

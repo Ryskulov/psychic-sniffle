@@ -13,15 +13,14 @@ def show_list(request):
     categories = Category.objects.all()
     return render(request, 'places/list.html', {'places': places, 'categories': categories})
 
+
 def category_list(request, category_slug):
     categories = Category.objects.all()
     category = Category.objects.get(slug=category_slug)
     places = Place.objects.filter(category=category)
 
     return render(request, 'places/list.html', {
-    	'places': places, 'category': category,
-    	'categories': categories,
-
+        'places': places, 'category': category, 'categories': categories,
     })
 
 
@@ -33,5 +32,4 @@ def search(request):
         places = Place.objects.filter(name__icontains=q)
         context = {'query': q, 'places': places}
         template = 'places/list.html'
-
     return render(request, template, context)
