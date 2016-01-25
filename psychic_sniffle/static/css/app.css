@@ -6,3 +6,31 @@
    css/less/bootstrap.less file.
 
    ========================================================================== */
+
+.place {
+	border: 1px solid black;
+}
+
+.place .dimmer {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+}
+
+.create-bookmark {
+    padding: 10px;
+    border: 1px solid #565656;
+    border-radius: 100%;
+    color: #232323;
+    position: absolute;
+    right: 35px;
+    top: 14px;
+    display: none;
+}
+.place:hover .create-bookmark {
+	display: block;
+
+}
+
+
+

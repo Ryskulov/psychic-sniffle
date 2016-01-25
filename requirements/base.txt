@@ -19,6 +19,8 @@ logutils
 django-braces
 django-model-utils
 bpython
+django-wysiwyg-redactor
+pillow
 
 # Admin
 django-debug-toolbar
