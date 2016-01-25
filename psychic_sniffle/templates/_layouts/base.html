@@ -87,7 +87,7 @@
               <li><a href="#">Link</a></li>
               {% if user.is_authenticated %}
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ request.username }} <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ request.user.username }} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Профиль</a></li>
                   <li role="separator" class="divider"></li>
@@ -116,11 +116,7 @@
     {% block footer %}
     <div class="container">
       <hr>
-<<<<<<< HEAD
-      <p>&copy; Company 2016</p>
-=======
       <p>&copy; Psy Chick 2016</p>
->>>>>>> 7dbb1cd2ddbb5c1e20bd61a8b662cc76df59ff60
     </div>
     {% endblock footer %}
   </footer>
