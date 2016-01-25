@@ -56,7 +56,7 @@ class PlacePicture(models.Model):
         return self.place.name
 
 class PlacePicture(models.Model):
-    place = models.ForeignKey(Place)
+    place = models.ForeignKey(Place, related_name='pictures')
     picture = models.ImageField(u'Изображение', upload_to='uploads/places/')
 
     class Meta:
