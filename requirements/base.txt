@@ -3,7 +3,7 @@
 Django
 
 # for bcrypt passwords
-bcrypt
+# bcrypt
 
 # Templates
 django_compressor
