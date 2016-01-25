@@ -3,8 +3,6 @@
 
 {% endblock %}
 {% block content %}
-<p class="h1">{{ request.user.first_name }} {{ request.user.last_name }}</p>
-<p><img src="{{ request.user.profile.avatar.url }}" alt="ФОТО" height="140"></p>
-<p class="text-muted"><i>{{ request.user.profile.status }}</i></p>
 
+{{ profile }}
 {% endblock %}

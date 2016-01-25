@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as django_login
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
@@ -34,7 +34,7 @@ def signin(request):
         if user.is_active:
             django_login(request, user)
             message = "User is valid, active and authenticated"
-            return redirect('/profile/')
+            return redirect('/profiles/')
         else:
             message = "The password is valid< but the account has bees disabled"
     else:

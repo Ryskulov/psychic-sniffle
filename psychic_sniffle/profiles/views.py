@@ -1,19 +1,33 @@
 from django.shortcuts import render
-from .models import Profile
+from django.contrib.auth.models import User
+from profiles.models import Profile
 from django import forms
 # Create your views here.
 
 
+
 def profile(request):
+    profile = request.user.profile
+    return render(request, 'profiles/profile.html', {'profile': profile})
+
+
+def profile_detail_public(request, username):
+    user = User.objects.get(username=username)
+    profile = user.profile
     if request.user.is_authenticated:
-        return render(request, 'profiles/profile.html')
+        return render(request, 'profiles/profile.html', {'profile': profile})
+
+def profile_detail_private(request):
+    profile = request.user.profile
+    if request.user.is_authenticated:
+        return render(request, 'profiles/profile_detail.html', {'profile': profile})
 
 
-class ProfileForm(forms.ModelForm):
+class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = (
-            'avatar', 'birthday', 'status', 'phone'
+           'avatar', 'birthday', 'status', 'phone'
         )
 
 
@@ -29,13 +43,6 @@ def profile_edit(request):
             profile_form = form.save(commit=False)
             profile_form.user = request.user
             profile_form.save()
-            return redirect('/profile/')
+            return redirect('/profiles/')
     return render(request, 'profiles/profile_edit.html', {'form': form})
 
-
-class ProfileEditForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = (
-           'avatar', 'birthday', 'status', 'phone'
-        )

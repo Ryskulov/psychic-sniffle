@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from place import views as place_views
 
+
 admin.autodiscover()
 
 

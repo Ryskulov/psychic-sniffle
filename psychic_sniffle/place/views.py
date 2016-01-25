@@ -22,9 +22,12 @@ def category_list(request, category_slug):
     return render(request, 'places/list.html', {
         'places': places, 'category': category, 'categories': categories,
     })
+
+
 def place_detail(request, place_slug):
     place = Place.objects.get(slug=place_slug)
     return render(request, 'places/detail.html', {'place': place})
+
 
 def search(request):
     context = {}
