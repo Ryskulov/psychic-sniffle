@@ -34,6 +34,9 @@ tramp
 .DS_Store
 ._*
 
+# Psychic virtual
+Psychic
+
 # Windows
 Thumbs.db
 Desktop.ini
