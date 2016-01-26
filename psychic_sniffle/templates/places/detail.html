@@ -3,63 +3,63 @@
 
 
 {% block content %}
-
-<div class="col-md-6">
-    {{ place.name }}
-</div>
-<div class="col-md-6">
-    <i class="glyphicon glyphicon-bookmark"></i>
-</div>
-<hr>
-<div class="row">
-    <div class="col-md-8">
-        <div class="slider">
-            {% for image in place.pictures.all %}
-            <div><img src="{{ image.picture.url }}" width="400" class="img-rounded"></div>
-            {% endfor %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            {{ place.name }}
+        </div>
+            <div class="col-md-6">
+                <i class="glyphicon glyphicon-bookmark"></i>
+            </div>
+            <hr>
+                <div class="col-md-8">
+            <div class="slider">
+                {% for image in place.pictures.all %}
+                <div><img src="{{ image.picture.url }}" width="400" class="img-rounded"></div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                Price goes here
+            </div>
+            <div class="col-md-12">
+                Посмотреть Х фото
+            </div>
+            <div class="col-md-3">
+                tags goes
+                <here></here>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    Description
+                </div>
+            </div>
         </div>
         <div class="col-md-4">
-            Price goes here
-        </div>
-        <div class="col-md-12">
-            Посмотреть Х фото
-        </div>
-        <div class="col-md-3">
-            tags goes
-            <here></here>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                Description
+            Here goes working time
+            <ul><br>
+                <li>
+                    Prices here
+                </li>
+                <li>
+                    Prices here
+                </li>
+                <li>
+                    Prices here
+                </li>
+                <li>
+                    Prices here
+                </li>
+            </ul>
+            <ADDRESS>Adress is below</ADDRESS>
+            <div class="well well-sm">
+                <br>Bishkek
+                <p>Toktogula 200</p>
+            </div>
+            <div class="">
+
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        Here goes working time
-        <ul><br>
-            <li>
-                Prices here
-            </li>
-            <li>
-                Prices here
-            </li>
-            <li>
-                Prices here
-            </li>
-            <li>
-                Prices here
-            </li>
-        </ul>
-        <ADDRESS>Adress is below</ADDRESS>
-        <div class="well well-sm">
-            <br>Bishkek
-            <p>Toktogula 200</p>
-        </div>
-        <div class="">
-
-        </div>
-    </div>
-
 </div>
 
 {% endblock %}
