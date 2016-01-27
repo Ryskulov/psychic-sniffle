@@ -46,7 +46,7 @@ def profile_edit(request):
             return redirect('/profiles/')
     return render(request, 'profiles/profile_edit.html', {'form': form})
 
-# def add_favorite(request, place_id):
-#     place = Place.objects.get(place_id)
-
-#     return JsonResponse()
+def add_favorite(request, place_id):
+    place = Place.objects.get(place_id)
+    request.user.profile.favorites.add(place)
+    return JsonResponse({'status': 'OK'})
