@@ -1,5 +1,6 @@
 {% extends "base/home.html" %}
 {% load static %}
+{% load comments %}
 
 
 {% block content %}
@@ -48,10 +49,13 @@
                 <here></here>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12"><br>
                     Description
                 </div>
             </div>
+              <br>
+              {% render_comment_form for place %}
+              {% render_comment_list for place %}
         </div>
         <div class="col-md-4">
             Here goes working time
@@ -73,9 +77,6 @@
             <div class="well well-sm">
                 <br>Bishkek
                 <p>Toktogula 200</p>
-            </div>
-            <div class="">
-            
             </div>
         </div>
     </div>
