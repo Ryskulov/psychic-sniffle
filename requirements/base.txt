@@ -25,3 +25,5 @@ pillow
 # Admin
 django-debug-toolbar
 
+# Geoposition
+django-geoposition
