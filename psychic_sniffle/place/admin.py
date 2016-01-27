@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from place.models import Place, PlaceTag, Feedback, Category, PlacePicture
+from place.models import Place, PlaceTag, Feedback, Category, PlacePicture, DetailMap
 from place.widgets import AdvancedFileInput
 from place.forms import PlaceAdminForm
 from django.db import models
@@ -25,6 +25,7 @@ class PlaceAdmin(admin.ModelAdmin):
     form = PlaceAdminForm
 
 
+admin.site.register(DetailMap)
 admin.site.register(Place, PlaceAdmin)
 admin.site.register(PlaceTag)
 admin.site.register(Feedback)

@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
+from geoposition.fields import GeopositionField
 
 
 
@@ -72,3 +73,8 @@ class Feedback(models.Model):
 
     def __unicode__(self):
         return self.author.get_full_name()
+
+
+class DetailMap(models.Model):
+    map_name = models.CharField(max_length=100)
+    position = GeopositionField()
