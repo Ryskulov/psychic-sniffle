@@ -1,8 +1,8 @@
+# coding: utf-8
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from profiles.models import Profile
 from django import forms
-# Create your views here.
 from django.http import JsonResponse
 
 
@@ -50,3 +50,4 @@ def add_favorite(request, place_id):
     place = Place.objects.get(place_id)
     request.user.profile.favorites.add(place)
     return JsonResponse({'status': 'OK'})
+
