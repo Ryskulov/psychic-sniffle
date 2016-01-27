@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from profiles.models import Profile
 from django import forms
 # Create your views here.
-
+from django.http import JsonResponse
 
 class ProfileForm(forms.Form):
     """docstring for ProgileForm"""
@@ -48,3 +48,7 @@ def profile_edit(request):
             return redirect('/profiles/')
     return render(request, 'profiles/profile_edit.html', {'form': form})
 
+# def add_favorite(request, place_id):
+#     place = Place.objects.get(place_id)
+
+#     return JsonResponse()

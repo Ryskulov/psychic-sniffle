@@ -3,6 +3,9 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
+from geoposition.fields import GeopositionField
+
+
 
 class PlaceTag(models.Model):
     name = models.CharField(u'Название', max_length=255)
@@ -36,7 +39,7 @@ class Place(models.Model):
     short_description = models.TextField(u'Краткое описание')
     description = models.TextField(u'Полное описание')
     is_published = models.BooleanField(u'Опубликовано', default=False)
-
+    
     class Meta:
         verbose_name = u'заведение'
         verbose_name_plural = u'заведения'
@@ -70,3 +73,8 @@ class Feedback(models.Model):
 
     def __unicode__(self):
         return self.author.get_full_name()
+
+
+class DetailMap(models.Model):
+    map_name = models.CharField(max_length=100)
+    position = GeopositionField()

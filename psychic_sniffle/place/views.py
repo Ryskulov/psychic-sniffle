@@ -38,3 +38,4 @@ def search(request):
         context = {'query': q, 'places': places}
         template = 'places/list.html'
     return render(request, template, context)
+
