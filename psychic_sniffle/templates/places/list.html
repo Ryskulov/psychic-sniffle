@@ -6,36 +6,40 @@
   {{ block.super }}
   <div class="container">
     <div class="row">
-      <div class="col-sm-4 col-md-4">
+      <div class="col-sm-3 col-md-3">
         <div class="wrapp">
           <ul class="nav nav-pills nav-stacked">
           {% for category in categories %}
-            <li role="presentation"><a href="{% url 'category' category.slug %}">{{ category.name }}</a></li>
+            <li role="presentation" style="background-color:#ECE9E3;"><a href="{% url 'category' category.slug %}">{{ category.name }}</a></li>
           {% endfor %}
           </ul>
         </div>
       </div>
-      <div class="col-sm-9 col-md-8">
+      <div class="col-sm-9 col-md-9">
         {% if query %}
           <h3 class="text-muted">Поиск по: &laquo;{{ query }}&raquo;</h3>
         {% else %}
-          <h3 class="text-muted">Список всех мест:</h3>
+          <h3 class="text-muted">Все заведения города:</h3>
         {% endif %}
         <hr>
         <div class="row">
+          <ul class="place_picture_list">
           {% for place in places %}
             {% if place.is_published %}
-              <div class="col-sm-4 col-md-4 place">
-                <div class="thumbnail">
-                  <img class="img__class"src="{{ place.main_foto.url }}" alt="">
+            <li class="place_picture_list_in col-md-4">
+              <div class="place">
+                <div class="thumbnail thumb_place">
+                  <img class="img__class size_picture_place"src="{{ place.main_foto.url }}" alt="">
                   <i class="glyphicon glyphicon-bookmark create-bookmark"></i>
                 </div>
                 <div class="caption">
                   <p class="h4 text-muted text-center"><a  href="{% url 'detail' place.slug %}">{{ place.name }}</a></p>
                 </div>
               </div>
+            </li>
             {% endif %}
           {% endfor %}
+          </ul>
         </div>
       </div>
     </div>

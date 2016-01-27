@@ -1,3 +1,4 @@
+{% load staticfiles %}
 /* =============================================================================
    App specific CSS file.
 
@@ -8,7 +9,8 @@
    ========================================================================== */
 
 .place {
-	border: 1px solid black;
+	border: 1px solid #EEEEEE;
+  margin: 10px;
 }
 
 .place .dimmer {
@@ -19,9 +21,9 @@
 
 .create-bookmark {
     padding: 10px;
-    border: 1px solid #565656;
+    border: 1px solid #3BC22D;
     border-radius: 100%;
-    color: #232323;
+    color: #F28139;
     position: absolute;
     right: 35px;
     top: 14px;
@@ -31,6 +33,24 @@
 	display: block;
 
 }
+.size_picture_place {
+
+}
+.place_picture_list{
+  list-style: none!important;
+
+}
+.place_picture_list_in {
+  display: inline-block;
+  text-align: left;
+  width: 280px;
+}
 
 
-
+/*********************/
+.profile_header {
+  background: url("../img/New-York-Black-White.jpg") no-repeat scroll 0% 0% / 100% 100%;
+}
+.pro_head_middle {
+  vertical-align: middle;
+}

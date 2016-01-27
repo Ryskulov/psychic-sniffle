@@ -5,11 +5,13 @@ from django import forms
 # Create your views here.
 
 
-
-def profile(request):
-    profile = request.user.profile
-    return render(request, 'profiles/profile.html', {'profile': profile})
-
+class ProfileForm(forms.Form):
+    """docstring for ProgileForm"""
+    class Meta:
+        model = Profile
+        fields = (
+            'avatar', 'birthday', 'status', 'phone'
+            )
 
 def profile_detail_public(request, username):
     user = User.objects.get(username=username)
