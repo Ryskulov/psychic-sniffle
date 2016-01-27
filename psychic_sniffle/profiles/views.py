@@ -1,5 +1,5 @@
 # coding: utf-8
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from profiles.models import Profile
 from django import forms
@@ -16,6 +16,7 @@ def profile_detail_public(request, username):
     profile = user.profile
     if request.user.is_authenticated:
         return render(request, 'profiles/profile.html', {'profile': profile})
+
 
 def profile_detail_private(request):
     profile = request.user.profile
@@ -36,18 +37,24 @@ def profile_edit(request):
     form = ProfileEditForm(
         request.POST or None,
         request.FILES or None,
-    instance=profile
+        instance=profile
     )
 
     if form.is_valid():
-            profile_form = form.save(commit=False)
-            profile_form.user = request.user
-            profile_form.save()
-            return redirect('/profiles/')
+        profile_form = form.save(commit=False)
+        profile_form.user = request.user
+        profile_form.save()
+        return redirect('/profiles/')
     return render(request, 'profiles/profile_edit.html', {'form': form})
 
-def add_favorite(request, place_id):
-    place = Place.objects.get(place_id)
-    request.user.profile.favorites.add(place)
-    return JsonResponse({'status': 'OK'})
 
+def profiles_bookmark_list(request):
+    return render(request, 'profiles/profiles_bookmark_list.html', locals())
+
+
+def add_favorite(request):
+    from place.models import Place
+    place_id = request.GET.get('place_id', None)
+    place = Place.objects.get(id=place_id)
+    request.user.profile.favorites.add(place)
+    return JsonResponse({'status': 'OK', 'message': u'Закладка добавлена!'})
