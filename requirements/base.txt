@@ -26,3 +26,6 @@ django-debug-toolbar
 
 # Geoposition
 django-geoposition
+
+# Django comments
+django-contrib-comments
