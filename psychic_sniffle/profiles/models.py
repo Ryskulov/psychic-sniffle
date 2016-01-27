@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
-
+from place.models import Place # Внимание !!!
 
 class Profile(models.Model):
     user = models.OneToOneField(User, verbose_name=u'Пользователь')
@@ -16,7 +16,7 @@ class Profile(models.Model):
     phone = models.CharField(u'Мобильный телефон', max_length=30, blank=True, null=True)
     slug = models.SlugField(unique=True)
     create_add = models.DateTimeField(u'Профиль был создан: ', auto_now_add=True)
-
+    favorites = models.ManyToManyField(Place) # Внимание !!!
     def __unicode__(self):
         return self.user.username
 
