@@ -4,14 +4,12 @@
 
 {% endblock %}
 {% block content %}
-
-<div class="profile_header">
-<div class="pro_head_middle">
-    <img src="{% static 'img/5753620800_2_1_1.jpg' %}" class="img-circle" alt="Cinque Terre" width="304" height="236"> 
-     <p> 
-        <span class="user">{{ request.user.profile.first_name }}</span>
-    </p>
-</div>
-</div>
-
+	<div class="profile_header">
+	<div class="pro_head_middle">
+	    <img src="{% static 'img/5753620800_2_1_1.jpg' %}" class="img-circle" alt="Cinque Terre" width="304" height="236"> 
+	     <p> 
+	        <span class="user">{{ request.user.profile.first_name }}</span>
+	    </p>
+	</div>
+	</div>
 {% endblock %}

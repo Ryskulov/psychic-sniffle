@@ -4,7 +4,7 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from place import views as place_views
-
+from profiles import views as profiles_views
 
 admin.autodiscover()
 
@@ -18,6 +18,8 @@ urlpatterns = [
     url(r'^category/(?P<category_slug>\S+)/$', place_views.category_list, name='category'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^redactor/', include('redactor.urls')),
+    url(r'^profile/add_favorite/(?P<place_id>\d+)$', profiles_views.add_favorite, name='add_favorite'),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +\
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

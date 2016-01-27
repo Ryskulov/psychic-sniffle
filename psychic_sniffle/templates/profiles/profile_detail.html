@@ -4,8 +4,15 @@
 
 {% block content %} 
 <div class="container">
-    <div class="row">
-   
+  <div class="row">
+    <div class="col-sm-3 col-md-4">
+        <a href="{% url 'profiles_bookmark_list' %}">Закладки</a>
+      <div class="wrapp">
+        <ul class="nav nav-pills nav-stacked">
+          <p class="h1">{{ request.user.profile.first_name }}</p>
+        </ul>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}

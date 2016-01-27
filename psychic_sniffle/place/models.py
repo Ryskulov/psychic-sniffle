@@ -28,7 +28,7 @@ class Category(models.Model):
 
 class Place(models.Model):
     name = models.CharField(u'Название ', max_length=30)
-    slug = models.SlugField(u'Slug')
+    slug = models.SlugField(u'Slug', unique=True)
     category = models.ForeignKey(Category, verbose_name=u'Категория', blank=True, null=True)
     created = models.DateTimeField(u'Дата регистрации: ', auto_now_add=True)
     modified = models.DateTimeField(u'Дата изменения: ', auto_now=True)
@@ -39,7 +39,7 @@ class Place(models.Model):
     short_description = models.TextField(u'Краткое описание')
     description = models.TextField(u'Полное описание')
     is_published = models.BooleanField(u'Опубликовано', default=False)
-    
+
     class Meta:
         verbose_name = u'заведение'
         verbose_name_plural = u'заведения'
