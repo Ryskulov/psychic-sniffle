@@ -295,6 +295,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 INSTALLED_APPS += (
     # Database migration helpers:
     'compressor',
+    'geoposition',
 )
 
 COMPRESS_PRECOMPILERS = (
