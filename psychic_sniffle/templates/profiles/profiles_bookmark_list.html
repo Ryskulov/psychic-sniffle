@@ -16,7 +16,7 @@
               <div class="place">
                 <div class="thumbnail thumb_place">
                   <img class="img__class size_picture_place"src="{{ place.main_foto.url }}" alt="">
-                  <i class="glyphicon glyphicon-bookmark create-bookmark"></i>
+                  <i class="glyphicon glyphicon-bookmark create-bookmark remove_bookmark" data-place_id="{{ place.id }}"></i>
                 </div>
                 <div class="caption">
                   <p class="h4 text-muted text-center"><a  href="{% url 'detail' place.slug %}">{{ place.name }}</a></p>

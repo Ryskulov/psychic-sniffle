@@ -28,12 +28,10 @@
             {% if place.is_published %}
             <li class="place_picture_list_in col-md-4">
               <div class="place">
-                <a href="#" class="create_bookmark" data-place_id="{{ place.id }}">
                   <div class="thumbnail thumb_place">
                   <img class="img__class size_picture_place"src="{{ place.main_foto.url }}" alt="">
-                  <i class="glyphicon glyphicon-bookmark create-bookmark"></i>
+                  <i class="glyphicon glyphicon-bookmark create-bookmark create_bookmark" data-place_id="{{ place.id }}"></i>
                   </div>
-                </a>
                 <div class="caption">
                   <p class="h4 text-muted text-center"><a  href="{% url 'detail' place.slug %}">{{ place.name }}</a></p>
                 </div>
