@@ -1,14 +1,75 @@
 {% extends "_layouts/base.html" %}
+{% load static %}
 
 {% block css %}
 {{block.super}}
 
 {% endblock css %}
 
-{% block page_title %}Your Site - Home{% endblock %}
+{% block page_title %}Psy Chick{% endblock %}
 {% block page_class %}home-page{% endblock %}
+
+
 {% block content %}
 
+<!-- background -->
+<style> 
+.fixed-bg {
+    background-image: url("{% static 'img/kg.jpg' %}");
+    min-height: 700px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.search_main{
+    top: 50%; 
+    left: 50%; 
+    width: 450px; 
+    height: 450px; 
+    position: absolute; 
+    margin-left: -225px; 
+}
+.inp {    
+    padding: 10px;
+    border: solid 1px gainsboro;
+    -webkit-transition: box-shadow 0.3s, border 0.3s;
+    -moz-transition: box-shadow 0.3s, border 0.3s;
+    -o-transition: box-shadow 0.3s, border 0.3s;
+    transition: box-shadow 0.3s, border 0.3s;
+    width: 80%;
+}
+.butt {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    
+    cursor: pointer;
+    margin-left: 135px;
+}
+.butt:hover {
+    background-color: #fff;
+    border-style: solid;
+    border-color: #4CAF50;
+    color: black;
+}
+</style>
 
+<div class="fixed-bg">
+    
+    <form  class="search_main" role="search" action='{% url 'search' %}' method='get' style="padding-top:">{% csrf_token %}
+        <h1 style="margin: 0;padding-left: 5px;color:#fff;padding-bottom: 20px;font-size: 50px;">Найди лучшее</h1>
+        <div class="form-group">
+            <input type="text" class="inp" name='q' placeholder="поиск..">
+        </div>
+            <button type="submit" class="butt">найти</button>
+     </form>
+</div>
 
 {% endblock %}
