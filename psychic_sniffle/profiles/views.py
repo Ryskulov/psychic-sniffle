@@ -54,7 +54,15 @@ def profiles_bookmark_list(request):
 
 def add_favorite(request):
     from place.models import Place
-    place_id = request.GET.get('place_id', None)
+    place_id = request.GET['place_id']
     place = Place.objects.get(id=place_id)
     request.user.profile.favorites.add(place)
     return JsonResponse({'status': 'OK', 'message': u'Закладка добавлена!'})
+
+def remove_favorite(request):
+    from place.models import Place
+    place_id = request.GET.get('place_id', None)
+    place = Place.objects.get(id=place_id)
+    request.user.profile.favorites.remove(place)
+    return JsonResponse({'status': 'OK', 'message': u'Закладка Удалена!'})
+

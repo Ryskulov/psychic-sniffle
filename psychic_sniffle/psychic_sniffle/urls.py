@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^redactor/', include('redactor.urls')),
     url(r'^profile/add_favorite/(?P<place_id>\d+)$', profiles_views.add_favorite, name='add_favorite'),
+    url(r'^comments/', include('django_comments.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +\
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

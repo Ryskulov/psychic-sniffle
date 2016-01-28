@@ -196,6 +196,7 @@ DJANGO_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'redactor',
+    'django_comments',
 
 
     # Useful template tags:
@@ -205,6 +206,8 @@ DJANGO_APPS = (
     'django.contrib.admin',
     # 'django.contrib.admindocs',
 )
+
+SITE_ID = 1
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
