@@ -21,7 +21,7 @@ def profile_detail_public(request, username):
 def profile_detail_private(request):
     profile = request.user.profile
     if request.user.is_authenticated:
-        return render(request, 'profiles/profile_detail.html', {'profile': profile})
+        return render(request, 'profiles/profile_detail.html', {'profile': profile,})
 
 
 class ProfileEditForm(forms.ModelForm):
@@ -58,6 +58,7 @@ def add_favorite(request):
     place = Place.objects.get(id=place_id)
     request.user.profile.favorites.add(place)
     return JsonResponse({'status': 'OK', 'message': u'Закладка добавлена!'})
+
 
 def remove_favorite(request):
     from place.models import Place

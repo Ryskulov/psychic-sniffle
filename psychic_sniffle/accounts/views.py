@@ -34,7 +34,7 @@ def signin(request):
         if user.is_active:
             django_login(request, user)
             message = "User is valid, active and authenticated"
-            return redirect('/profiles/')
+            return redirect('/profiles/profile_detail_private/')
         else:
             message = "The password is valid< but the account has bees disabled"
     else:
@@ -49,7 +49,7 @@ def signup(request):
         user.is_active = True
         user.set_password(form.cleaned_data['password'])
         user.save()
-        return redirect('/signin/')
+        return redirect('/accounts/signin/')
     return render(request, "accounts/signup.html", {'form': form})
 
 
