@@ -90,6 +90,7 @@
                            aria-expanded="false">Hello, {{ request.user.username }} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{% url 'profile_detail_private' %}">Профиль</a></li>
+                            <li><a href="{% url 'profiles_bookmark_list' %}">Закладки ({{ request.user.profile.favorites.all.count }})</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{% url 'signout' %}">Выход</a></li>
                         </ul>

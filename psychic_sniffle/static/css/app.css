@@ -1,3 +1,4 @@
+
 /* =============================================================================
    App specific CSS file.
 
@@ -47,9 +48,119 @@
 
 
 /*********************/
-.profile_header {
-  background: url("../img/New-York-Black-White.jpg") no-repeat scroll 0% 0% / 100% 100%;
+.header_in {
+  border-style: solid;
+  border-color: #F3F3F3;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-width: 0px 1px;
 }
-.pro_head_middle {
-  vertical-align: middle;
+#user {
+  position: relative;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 1px 15px;
+  line-height: 140%;
+  background: #E9EDF1 none repeat scroll 0% 0%;
+  color: #607387;
+  border-style: solid;
+  border-color: #D9E0E7;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-width: 0px 1px;
+}
+.wrap{
+      border-style: solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-width: 0px 1px 1px;
+    border-color: rgba(100, 100, 100, 0.08);
+    margin-right: 0px !important;
+    margin-left: 0 !important;
+}
+.wrap_in{
+    border-style: solid;
+    border-color: #D9E0E7;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-width: 0px 1px 1px;
+}
+.profile{
+  padding: 10px 0px 0px;
+}
+.foto{
+  text-align: center;
+  max-height: 500px;
+  height: auto !important;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.profile_info {
+    padding-bottom: 10px;
+}
+.avatar {padding-left: 0 !important;}
+.edit_profile{
+  background: #E4E6E5 none repeat scroll 0% 0%;
+  display: block;
+  padding: 9px 24px;
+}
+
+/********************************/
+
+.fixed-bg {
+    background-image: url("../img/kg.jpg");
+    min-height: 700px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.search_main{
+    top: 50%; 
+    left: 50%; 
+    width: 450px; 
+    height: 450px; 
+    position: absolute; 
+    margin-left: -225px; 
+}
+.inp {    
+    padding: 10px;
+    border: solid 1px gainsboro;
+    -webkit-transition: box-shadow 0.3s, border 0.3s;
+    -moz-transition: box-shadow 0.3s, border 0.3s;
+    -o-transition: box-shadow 0.3s, border 0.3s;
+    transition: box-shadow 0.3s, border 0.3s;
+    width: 80%;
+}
+.butt {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    
+    cursor: pointer;
+    margin-left: 135px;
+}
+.butt:hover {
+    background-color: #fff;
+    border-style: solid;
+    border-color: #4CAF50;
+    color: black;
 }
