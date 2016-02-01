@@ -78,3 +78,7 @@ class Feedback(models.Model):
 class DetailMap(models.Model):
     map_name = models.CharField(max_length=100)
     position = GeopositionField()
+
+    class Meta:
+        verbose_name = u'карта'
+        verbose_name_plural = u'карты'

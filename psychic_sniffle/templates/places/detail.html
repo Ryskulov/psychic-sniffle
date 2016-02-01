@@ -4,8 +4,8 @@
 
 
 {% block content %}
-<style type="text/css">
-      html, body { height: 70%; margin: 10; padding: 0; }
+<!--<style type="text/css">
+      html, body { height: 50%; margin: 10; padding: 100; }
       #map { height: 100%; }
     </style>
     <div id="map">This is map</div>
@@ -17,11 +17,11 @@
           zoom: 8
         });
       }
-
     </script>
+
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvkUxI_-f0V-CN6fcXILmIwxfEUHIKVa4&callback=initMap">
-    </script>
+    </script>-->
 
 <div class="container">
     <div class="row">
@@ -36,6 +36,7 @@
             <div class="slider">
                 {% for image in place.pictures.all %}
                 <div><img src="{{ image.picture.url }}" width="400" class="img-rounded"></div>
+                <div class="slide__caption">Посмотреть Х фото</div>
                 {% endfor %}
             </div>
             <div class="col-md-4">
@@ -55,7 +56,7 @@
             </div>
               <br>
               {% render_comment_form for place %}
-              {% render_comment_list for place %}
+              <br>{% render_comment_list for place %}
         </div>
         <div class="col-md-4">
             Here goes working time
@@ -75,9 +76,10 @@
             </ul>
             <ADDRESS>Adress is below</ADDRESS>
             <div class="well well-sm">
-                <br>Bishkek
-                <p>Toktogula 200</p>
+                <br>Бишкек
+                <p>Гоголя/ Московская</p>
             </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.16355519935!2d74.61936645060213!3d42.8693919106746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7b6db70393d%3A0x51b1a1c19d202184!2z0KbQtdC90YLRgNCw0LvRjNC90LDRjyDQvNC10YfQtdGC0Yw!5e0!3m2!1sru!2skg!4v1453993518452" width="400" height="250" frameborder="1" style="border:0" allowfullscreen></iframe>
         </div>
     </div>
 </div>
