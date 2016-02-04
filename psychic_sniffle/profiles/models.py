@@ -5,6 +5,10 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from place.models import Place # Внимание !!!
+from django_comments.models import Comment
+import sendgrid
+
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, verbose_name=u'Пользователь')
@@ -37,3 +41,17 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.get_or_create(user=instance)
 
+@receiver(post_save, sender=Comment, dispatch_uid="comment_mail_send")
+def comment_mail_send(sender, instance, created, **kwargs):
+#    print dir(instance)
+        
+
+    if instance.is_public == True:
+        sg = sendgrid.SendGridClient('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')
+        message = sendgrid.Mail(to=instance.user_email, subject='Comment is published', html=instance.name+', Your comment is published', text='Body', from_email='mi@besmart.kz')
+        status, msg = sg.send(message)
+
+    else:
+        sg = sendgrid.SendGridClient('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')
+        message = sendgrid.Mail(to=instance.user_email, subject='Your comment is on moderation', html=instance.name+', Your last comment is succesfully saved. Please, wait for moderation.', text='Body', from_email='mi@besmart.kz')
+        status, msg = sg.send(message)

@@ -1,9 +1,8 @@
 from django.contrib import admin
-
+from django.db import models
 from place.models import Place, PlaceTag, Feedback, Category, PlacePicture, DetailMap
 from place.widgets import AdvancedFileInput
 from place.forms import PlaceAdminForm
-from django.db import models
 
 
 
