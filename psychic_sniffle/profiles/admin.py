@@ -3,6 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from profiles.models import Profile
 from place.widgets import AdvancedFileInput
+from django_comments.models import Comment
 
 
 class ProfileAdmin(admin.ModelAdmin):
@@ -12,3 +13,4 @@ class ProfileAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Profile, ProfileAdmin)
+

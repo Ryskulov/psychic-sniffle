@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from profiles.models import Profile
 from django import forms
 from django.http import JsonResponse
+from .admin import Comment
 
 
 def profile(request):
@@ -67,3 +68,6 @@ def remove_favorite(request):
     request.user.profile.favorites.remove(place)
     return JsonResponse({'status': 'OK', 'message': u'Закладка Удалена!'})
 
+def comment(request):
+    comment = Comment.objects.all()
+    return render(request, 'profiles/profile_detail_private.html')
