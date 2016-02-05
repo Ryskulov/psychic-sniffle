@@ -19,7 +19,14 @@
         touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
-
+.slide__caption {
+  bottom: 0;
+  min-height: 80px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
 .slick-list
 {
     position: relative;
@@ -116,4 +123,9 @@
 }
 .slick-arrow.slick-hidden {
     display: none;
+}
+.slick-slide
+{
+width: 750px;
+height: 400px;
 }

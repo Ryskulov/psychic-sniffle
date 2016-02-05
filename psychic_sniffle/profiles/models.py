@@ -6,6 +6,10 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django_comments.models import Comment
 from place.models import Place # Внимание !!!
+from django_comments.models import Comment
+import sendgrid
+
+
 
 
 
@@ -44,7 +48,16 @@ def create_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=Comment, dispatch_uid="comment_mail_send")
 def comment_mail_send(sender, instance, created, **kwargs):
-    sg = sendgrid.SendGridClient('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')
+#    print dir(instance)
+        
 
-    message = sendgrid.Mail(to='perfect_nur@mail.ru', subject='Example', html='<img src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&cad=rja&uact=8&ved=0ahUKEwjEqczl59bKAhWB33IKHWWuAFQQjRwICTAA&url=http%3A%2F%2Fgoodnewsanimal.ru%2Fnews%2Fdom_bez_koshki_dom_bez_schastja%2F2013-11-04-3799&psig=AFQjCNF2_Rej-DvtOQHl75I49lDZPmQixA&ust=1454424548242839">', text='Body', from_email='mi@besmart.kz')
-    status, msg = sg.send(message)
+    if instance.is_public == True:
+        sg = sendgrid.SendGridClient('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')
+        message = sendgrid.Mail(to=instance.user_email, subject='Comment is published', html=instance.name+', Your comment is published', text='Body', from_email='mi@besmart.kz')
+        status, msg = sg.send(message)
+
+    else:
+        sg = sendgrid.SendGridClient('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')
+        message = sendgrid.Mail(to=instance.user_email, subject='Your comment is on moderation', html=instance.name+', Your last comment is succesfully saved. Please, wait for moderation.', text='Body', from_email='mi@besmart.kz')
+        status, msg = sg.send(message)
+
