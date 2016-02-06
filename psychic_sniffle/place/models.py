@@ -52,11 +52,13 @@ class Place(models.Model):
     place_picture.short_description = u'Картинка'
     place_picture.allow_tags = True
 
+def content_file_name(instance, filename):
+    return 'uploads/{0}/{1}'.format(instance.place.slug, filename)
 
 class PlacePicture(models.Model):
     place = models.ForeignKey(Place, related_name='pictures')
-    picture = models.ImageField(u'Изображение', upload_to='uploads/places/')
-
+    picture = models.ImageField(u'Изображение', upload_to=content_file_name)
+    
     class Meta:
         verbose_name = u'изображение'
         verbose_name_plural = u'Галерея'
